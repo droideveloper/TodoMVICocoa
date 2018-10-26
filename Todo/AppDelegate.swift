@@ -7,14 +7,19 @@
 //
 
 import UIKit
+import MVICocoa
+import Swinject
+import SwinjectStoryboard
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, Injectable {
 
   var window: UIWindow?
-
+  
+  var container: Container = Container()
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    
     // Override point for customization after application launch.
     return true
   }
