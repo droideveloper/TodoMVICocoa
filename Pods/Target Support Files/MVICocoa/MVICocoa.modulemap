@@ -1,0 +1,6 @@
+framework module MVICocoa {
+  umbrella header "MVICocoa-umbrella.h"
+
+  export *
+  module * { export * }
+}

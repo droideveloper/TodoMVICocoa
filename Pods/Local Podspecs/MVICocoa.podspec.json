@@ -1,0 +1,38 @@
+{
+  "name": "MVICocoa",
+  "version": "0.0.1",
+  "summary": "MVICocoa, is library that implements, Model-View-Intent architecture for iOS framework.",
+  "description": "MVI architecture implementation basic and needs for iOS framework to create valid applications for swift 4.2",
+  "homepage": "http://EXAMPLE/MVICocoa",
+  "license": "MIT",
+  "authors": {
+    "Fatih": "fatih.sen.boun@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/droideveloper/MVICocoa.git",
+    "branch": "master"
+  },
+  "source_files": "MVI/**/*.swift",
+  "exclude_files": "RxSwift/**/**/*.swift",
+  "swift_version": "4.2",
+  "dependencies": {
+    "RxSwift": [
+      "~> 4.0"
+    ],
+    "RxCocoa": [
+      "~> 4.0"
+    ],
+    "Alamofire": [
+      "~> 4.7"
+    ],
+    "AlamofireImage": [
+      "~> 3.4"
+    ],
+    "Swinject": [
+
+    ]
+  }
+}
