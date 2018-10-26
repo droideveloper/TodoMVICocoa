@@ -23,24 +23,26 @@ open class BaseViewModel<T: Model>: ViewModel {
       .replay(1)
   }()
   
-  let disposeBag = DisposeBag()
+  public let disposeBag = DisposeBag()
   
-  public func attach() {
+  public init() { }
+  
+  open func attach() {
     // connect storage
     disposeBag += storage.connect()
   }
   
-  public func state() -> Observable<SyncState> {
+  open func state() -> Observable<SyncState> {
     return storage.map { model in
       return model.state
     }
   }
   
-  public func store() -> Observable<T> {
+  open func store() -> Observable<T> {
     return storage.share()
   }
   
-  public func accept(_ intent: Intent) {
+  open func accept(_ intent: Intent) {
     intents.accept(intent)
   }
 }

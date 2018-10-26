@@ -25,7 +25,7 @@ open class BaseCollectionViewController<T: Model, V: ViewModel>: UICollectionVie
   }()
   
   private let events = PublishRelay<Event>()
-  let disposeBag = DisposeBag()
+  public let disposeBag = DisposeBag()
   
   open override func viewDidLoad() {
     super.viewDidLoad()
@@ -33,11 +33,11 @@ open class BaseCollectionViewController<T: Model, V: ViewModel>: UICollectionVie
     attach()
   }
   
-  public func setUp() {
+  open func setUp() {
     // TODO do your set up
   }
   
-  public func attach() {
+  open func attach() {
     // base attach functionality
     viewModel.attach()
     
@@ -58,11 +58,11 @@ open class BaseCollectionViewController<T: Model, V: ViewModel>: UICollectionVie
       .subscribe(onNext: render(model:))
   }
   
-  public func render(model: T) {
+  open func render(model: T) {
     // TODO implement
   }
   
-  public func viewEvents() -> Observable<Event> {
+  open func viewEvents() -> Observable<Event> {
     return events.share()
   }
   
