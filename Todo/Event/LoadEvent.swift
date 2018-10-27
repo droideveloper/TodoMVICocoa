@@ -10,7 +10,7 @@ import Foundation
 import MVICocoa
 import Swinject
 
-class LoadTodoEvent: Event {
+class LoadEvent: Event {
 	
 	private let display: Display
 	
@@ -21,7 +21,7 @@ class LoadTodoEvent: Event {
 	
 	override func toIntent(container: Container?) -> Intent {
 		if let localStorageRepository = container?.resolve(LocalStorageRepository.self) {
-			return LoadTodoIntent(localStorageRepository: localStorageRepository, display: display)
+			return LoadIntent(localStorageRepository: localStorageRepository, display: display)
 		}
 		return super.toIntent(container: container)
 	}

@@ -11,7 +11,7 @@ import RxSwift
 
 protocol FileRepository {
 	
-	var url: URL { get }
+	var url: URL { get }
 	
 	func read<T: Decodable>(_ url: URL, _ type: T.Type) -> Observable<T>
 	func write<T: Encodable>(_ url: URL, _ object: T) -> Completable
