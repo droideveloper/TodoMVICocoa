@@ -11,91 +11,72 @@ import RxSwift
 import MVICocoa
 
 class LocalStorageRepositoryImp: LocalStorageRepository {
-  
-  private let kFileStorage = "storage.json"
-  private let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-
-  private let disposeBag = DisposeBag()
-  private let cache: Variable<[Todo]>
-  
-  private var url: URL {
-    get {
-      if let file = directory?.appendingPathComponent(kFileStorage) {
-        return file
-      }
-      fatalError("you can not create such file in here")
-    }
-  }
-  
-  init(cache: Variable<[Todo]>) {
-    // cache will be uploaded
-    self.cache = cache
-    // will sync the data with others
-    disposeBag += cache.asObservable()
-      .concatMap(persist(object: ))
-      .subscribeOn(MainScheduler.asyncInstance)
-      .subscribe()
-  }
-  
-  func load() -> Observable<[Todo]> {
-    return read(url: url, as: [Todo].self)
-      .do(onNext: bind(_ :))
-  }
-  
-  private func read<T>(url: URL, as type: T.Type) -> Observable<T> where T: Decodable, T: Encodable {
-    return Observable.create { emitter in
-      do {
-        let decoder = JSONDecoder()
-        let fileManager = FileManager.default
-        
-        if fileManager.fileExists(atPath: url.path) {
-          if let data = fileManager.contents(atPath: url.path) {
-            let result = try decoder.decode(type, from: data)
-            emitter.onNext(result)
-            emitter.onCompleted()
-          }
-        } else {
-          let error = NSError(domain: "no such file \(url.path)", code: 401, userInfo: nil)
-          emitter.onError(error)
-        }
-      } catch {
-        emitter.onError(error)
-      }
-      
-      return Disposables.create()
-    }
-  }
-  
-  private func write<T>(url: URL, object: T) -> Completable where T : Decodable, T : Encodable {
-    return Completable.create { emitter in
-      do {
-        let encoder = JSONEncoder()
-        let fileManager = FileManager.default
-        
-        let data = try encoder.encode(object)
-        if fileManager.fileExists(atPath: url.path) {
-          try fileManager.removeItem(at: url)
-        }
-        let success = fileManager.createFile(atPath: url.path, contents: data, attributes: nil)
-        if success {
-          emitter(.completed)
-        } else {
-          let error = NSError(domain: "you could not create file at \(url.path)", code: 404, userInfo: nil)
-          emitter(.error(error))
-        }
-      } catch {
-        emitter(.error(error))
-      }
-      return Disposables.create()
-    }
-  }
-  
-  private func persist<T>(object: T) -> Observable<T> where T: Decodable, T: Encodable {
-    return write(url: url, object: object)
-      .andThen(Observable.of(object))
-  }
-  
-  private func bind(_ value: [Todo]) {
-    cache.value = value
-  }
+	
+	private var dataSet = Array<Todo>()
+	private let fileRepository: FileRepository
+	
+	init(fileRepository: FileRepository) {
+		self.fileRepository = fileRepository
+	}
+	
+	func create(_ value: Todo) -> Completable {
+		return Completable.create { emitter in
+			
+			self.dataSet.append(value)
+			emitter(.completed)
+			
+			return Disposables.create()
+		}.andThen(persist()) // with any change we do persist it 
+	}
+	
+	func delete(_ value: Todo) -> Completable {
+		return Completable.create { emitter in
+			
+			if let index = self.dataSet.firstIndex(of: value) {
+				self.dataSet.remove(at: index)
+			}
+			emitter(.completed)
+			
+			return Disposables.create()
+	  }.andThen(persist()) // with any change we do persist it
+	}
+	
+	func update(_ value: Todo) -> Completable {
+		return Completable.create { emitter in
+			if let index = self.dataSet.firstIndex(of: value) {
+				self.dataSet[index] = value
+			}
+			emitter(.completed)
+			
+			return Disposables.create()
+		}.andThen(persist()) // in any change we do persist it
+	}
+	
+	func load(_ display: Display) -> Observable<[Todo]> {
+		return deserialize() // read from file system
+			.flatMap { items in Observable.from(items) }
+			.enumerated()
+			.filter { index, item in return self.filter(display: display, index, item: item) }
+			.map { _, item in item }
+			.toArray()
+	}
+	
+	private func filter(display: Display, _: Int, item: Todo) -> Bool {
+		switch display {
+		case .all:
+			return true
+		case .active:
+			return item.state == .active
+		case .inactive:
+			return item.state == .inactive || item.state == .completed
+		}
+	}
+	
+	private func deserialize() -> Observable<[Todo]> {
+		return fileRepository.read(fileRepository.url, [Todo].self)
+	}
+	
+	private func persist() -> Completable {
+		return fileRepository.write(fileRepository.url, dataSet)
+	}
 }

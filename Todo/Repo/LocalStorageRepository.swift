@@ -10,5 +10,8 @@ import Foundation
 import RxSwift
 
 public protocol LocalStorageRepository {
-  func load() -> Observable<[Todo]>
+	func create(_ value: Todo) -> Completable
+	func delete(_ value: Todo) -> Completable
+	func update(_ value: Todo) -> Completable
+	func load(_ display: Display) -> Observable<[Todo]>
 }

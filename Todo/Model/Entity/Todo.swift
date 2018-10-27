@@ -8,15 +8,15 @@
 
 import Foundation
 
-public struct Todo: Codable {
+public struct Todo: Codable, Equatable{
   
-  public static let empty = Todo()
+	public static let empty = Todo(id: String.empty, title: String.empty, state: .active, createdAt: Date(), updatedAt: Date())
   
-  var id: String = UUID().uuidString
-  var title = String.empty
-  var state: State = .active
-  var createdAt = Date()
-  var updatedAt = Date()
+  let id: String
+	let title: String
+  let state: State
+	let createdAt: Date
+	let updatedAt: Date
   
   public func copy(id: String? = nil, title: String? = nil, state: State? = nil, createdAt: Date? = nil, updatedAt: Date? = nil) -> Todo {
     return Todo(id: id ?? self.id,
@@ -25,4 +25,8 @@ public struct Todo: Codable {
                 createdAt: createdAt ?? self.createdAt,
                 updatedAt: updatedAt ?? self.updatedAt)
   }
+	
+	public static func == (lhs: Todo, rhs: Todo) -> Bool {
+		return lhs.id == rhs.id
+	}
 }
