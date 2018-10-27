@@ -14,6 +14,9 @@
 		3D28FD8C2182F2AB004523F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D28FD8A2182F2AB004523F9 /* LaunchScreen.storyboard */; };
 		3D28FD972182F2AB004523F9 /* TodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D28FD962182F2AB004523F9 /* TodoTests.swift */; };
 		3D28FDA22182F2AB004523F9 /* TodoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D28FDA12182F2AB004523F9 /* TodoUITests.swift */; };
+		3D9F18E02184A9ED001E9C2E /* EditorLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9F18DF2184A9ED001E9C2E /* EditorLayout.swift */; };
+		3D9F18E22184AB9E001E9C2E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9F18E12184AB9E001E9C2E /* MainViewController.swift */; };
+		3D9F18E42184AD14001E9C2E /* BottomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9F18E32184AD14001E9C2E /* BottomLayout.swift */; };
 		3DBE967A2182F7A700370AA9 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE96792182F7A700370AA9 /* Module.swift */; };
 		3DBE967D218301EF00370AA9 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE967C218301EF00370AA9 /* Todo.swift */; };
 		3DBE967F2183020400370AA9 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE967E2183020400370AA9 /* State.swift */; };
@@ -73,6 +76,9 @@
 		3D28FD9D2182F2AB004523F9 /* TodoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D28FDA12182F2AB004523F9 /* TodoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoUITests.swift; sourceTree = "<group>"; };
 		3D28FDA32182F2AB004523F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D9F18DF2184A9ED001E9C2E /* EditorLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorLayout.swift; sourceTree = "<group>"; };
+		3D9F18E12184AB9E001E9C2E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		3D9F18E32184AD14001E9C2E /* BottomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomLayout.swift; sourceTree = "<group>"; };
 		3DBE96792182F7A700370AA9 /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		3DBE967C218301EF00370AA9 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		3DBE967E2183020400370AA9 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
@@ -258,6 +264,7 @@
 				3DDDB457218486DC0007D336 /* DataSource */,
 				3DDDB456218486D10007D336 /* Cell */,
 				3DBE96882183140F00370AA9 /* TodoViewController.swift */,
+				3D9F18E12184AB9E001E9C2E /* MainViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -316,6 +323,8 @@
 			isa = PBXGroup;
 			children = (
 				3DDDB45D21848BF70007D336 /* UIRadioButton.swift */,
+				3D9F18DF2184A9ED001E9C2E /* EditorLayout.swift */,
+				3D9F18E32184AD14001E9C2E /* BottomLayout.swift */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -570,11 +579,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DDDB44E21847BF10007D336 /* UpdateIntent.swift in Sources */,
+				3D9F18E22184AB9E001E9C2E /* MainViewController.swift in Sources */,
+				3D9F18E02184A9ED001E9C2E /* EditorLayout.swift in Sources */,
 				3DDDB44A218466600007D336 /* LoadIntent.swift in Sources */,
 				3DDDB44521845E460007D336 /* CreateIntent.swift in Sources */,
 				3DDDB45321847E920007D336 /* DeleteIntent.swift in Sources */,
 				3D28FD822182F2A9004523F9 /* AppDelegate.swift in Sources */,
 				3DDDB455218480CE0007D336 /* DeleteEvent.swift in Sources */,
+				3D9F18E42184AD14001E9C2E /* BottomLayout.swift in Sources */,
 				3DDDB448218464100007D336 /* CreateEvent.swift in Sources */,
 				3DBE968F2183460000370AA9 /* LocalStorageRepositoryImp.swift in Sources */,
 				3DBE967F2183020400370AA9 /* State.swift in Sources */,

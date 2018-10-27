@@ -27,12 +27,22 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t1m-Yc-6sI">
+                        <rect key="frame" x="0.0" y="92.5" width="0.0" height="1"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="xdK-SV-m83"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="t1m-Yc-6sI" secondAttribute="bottom" id="9eL-oD-OEX"/>
                     <constraint firstItem="HAy-os-Gaz" firstAttribute="leading" secondItem="xcA-3r-8d5" secondAttribute="leadingMargin" constant="8" id="YsC-SA-GeE"/>
                     <constraint firstItem="HAy-os-Gaz" firstAttribute="trailing" secondItem="zY2-R9-POs" secondAttribute="leading" constant="8" id="fyN-ZA-GCF"/>
+                    <constraint firstAttribute="leading" secondItem="t1m-Yc-6sI" secondAttribute="trailing" id="gow-NF-K9u"/>
                     <constraint firstAttribute="trailingMargin" secondItem="zY2-R9-POs" secondAttribute="trailing" constant="8" id="kV2-Y7-pER"/>
                     <constraint firstItem="HAy-os-Gaz" firstAttribute="centerY" secondItem="xcA-3r-8d5" secondAttribute="centerY" id="s13-zP-cUY"/>
+                    <constraint firstItem="t1m-Yc-6sI" firstAttribute="leading" secondItem="xcA-3r-8d5" secondAttribute="leading" id="urb-ID-BD4"/>
                     <constraint firstItem="zY2-R9-POs" firstAttribute="centerY" secondItem="xcA-3r-8d5" secondAttribute="centerY" id="vf4-Ej-mea"/>
                 </constraints>
             </tableViewCellContentView>
