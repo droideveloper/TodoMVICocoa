@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Todo: Codable, Equatable{
+public struct Todo: Codable, Equatable {
   
 	public static let empty = Todo(id: String.empty, title: String.empty, state: .active, createdAt: Date(), updatedAt: Date())
   

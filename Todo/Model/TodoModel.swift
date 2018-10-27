@@ -17,7 +17,7 @@ public struct TodoModel: Model {
   public var state: SyncState
   public var data: [Todo]
   
-  public func copy(state: SyncState?, data: [Todo]?) -> TodoModel {
+  public func copy(state: SyncState? = nil, data: [Todo]? = nil) -> TodoModel {
     return TodoModel(state: state ?? self.state, data: data ?? self.data)
   }
 }
