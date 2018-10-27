@@ -36,6 +36,8 @@
 		3DDDB459218486F20007D336 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB458218486F20007D336 /* TodoCell.swift */; };
 		3DDDB45B2184871D0007D336 /* TodoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DDDB45A2184871D0007D336 /* TodoCell.xib */; };
 		3DDDB45E21848BF70007D336 /* UIRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB45D21848BF70007D336 /* UIRadioButton.swift */; };
+		3DDDB4602184925F0007D336 /* TodoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB45F2184925F0007D336 /* TodoDataSource.swift */; };
+		3DDDB4622184956F0007D336 /* StateChangedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB4612184956F0007D336 /* StateChangedEvent.swift */; };
 		7F4D0F0B17ED4AF8DA579994 /* Pods_TodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 721DFC5BDC7B38C964FB1814 /* Pods_TodoUITests.framework */; };
 		CF5797518391346D172E5829 /* Pods_TodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A56E7CC5978EBD83614FF5 /* Pods_TodoTests.framework */; };
 /* End PBXBuildFile section */
@@ -93,6 +95,8 @@
 		3DDDB458218486F20007D336 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		3DDDB45A2184871D0007D336 /* TodoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoCell.xib; sourceTree = "<group>"; };
 		3DDDB45D21848BF70007D336 /* UIRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRadioButton.swift; sourceTree = "<group>"; };
+		3DDDB45F2184925F0007D336 /* TodoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDataSource.swift; sourceTree = "<group>"; };
+		3DDDB4612184956F0007D336 /* StateChangedEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateChangedEvent.swift; sourceTree = "<group>"; };
 		64C6221BDD701D11A6876969 /* Pods-Todo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Todo/Pods-Todo.release.xcconfig"; sourceTree = "<group>"; };
 		65A56E7CC5978EBD83614FF5 /* Pods_TodoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68714BDDA778F73875D3E60F /* Pods-Todo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Todo/Pods-Todo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -276,6 +280,7 @@
 				3DDDB44B218467A10007D336 /* LoadEvent.swift */,
 				3DDDB44F21847D9E0007D336 /* UpateEvent.swift */,
 				3DDDB454218480CE0007D336 /* DeleteEvent.swift */,
+				3DDDB4612184956F0007D336 /* StateChangedEvent.swift */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 		3DDDB457218486DC0007D336 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				3DDDB45F2184925F0007D336 /* TodoDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -578,12 +584,14 @@
 				3DDDB441218457290007D336 /* FileRepositoryImp.swift in Sources */,
 				3DBE967D218301EF00370AA9 /* Todo.swift in Sources */,
 				3DBE9685218311AE00370AA9 /* TodoModel.swift in Sources */,
+				3DDDB4622184956F0007D336 /* StateChangedEvent.swift in Sources */,
 				3DBE96822183118600370AA9 /* TodoViewModel.swift in Sources */,
 				3DBE967A2182F7A700370AA9 /* Module.swift in Sources */,
 				3DDDB459218486F20007D336 /* TodoCell.swift in Sources */,
 				3DBE968D2183454A00370AA9 /* LocalStorageRepository.swift in Sources */,
 				3DDDB443218458770007D336 /* Display.swift in Sources */,
 				3DDDB45021847D9E0007D336 /* UpateEvent.swift in Sources */,
+				3DDDB4602184925F0007D336 /* TodoDataSource.swift in Sources */,
 				3DDDB43F218456B60007D336 /* FileRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

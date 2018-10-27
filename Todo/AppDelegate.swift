@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, Injectable {
   var container: Container = Container()
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    
+    _ = Module(container: container) // will inject my container
     // Override point for customization after application launch.
     return true
   }
