@@ -27,8 +27,12 @@
 		3DDDB443218458770007D336 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB442218458770007D336 /* Display.swift */; };
 		3DDDB44521845E460007D336 /* CreateIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB44421845E460007D336 /* CreateIntent.swift */; };
 		3DDDB448218464100007D336 /* CreateEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB447218464100007D336 /* CreateEvent.swift */; };
-		3DDDB44A218466600007D336 /* LoadTodoIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB449218466600007D336 /* LoadTodoIntent.swift */; };
-		3DDDB44C218467A10007D336 /* LoadTodoEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB44B218467A10007D336 /* LoadTodoEvent.swift */; };
+		3DDDB44A218466600007D336 /* LoadIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB449218466600007D336 /* LoadIntent.swift */; };
+		3DDDB44C218467A10007D336 /* LoadEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB44B218467A10007D336 /* LoadEvent.swift */; };
+		3DDDB44E21847BF10007D336 /* UpdateIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB44D21847BF10007D336 /* UpdateIntent.swift */; };
+		3DDDB45021847D9E0007D336 /* UpateEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB44F21847D9E0007D336 /* UpateEvent.swift */; };
+		3DDDB45321847E920007D336 /* DeleteIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB45221847E920007D336 /* DeleteIntent.swift */; };
+		3DDDB455218480CE0007D336 /* DeleteEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB454218480CE0007D336 /* DeleteEvent.swift */; };
 		7F4D0F0B17ED4AF8DA579994 /* Pods_TodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 721DFC5BDC7B38C964FB1814 /* Pods_TodoUITests.framework */; };
 		CF5797518391346D172E5829 /* Pods_TodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A56E7CC5978EBD83614FF5 /* Pods_TodoTests.framework */; };
 /* End PBXBuildFile section */
@@ -75,10 +79,14 @@
 		3DDDB43E218456B60007D336 /* FileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileRepository.swift; sourceTree = "<group>"; };
 		3DDDB440218457290007D336 /* FileRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileRepositoryImp.swift; sourceTree = "<group>"; };
 		3DDDB442218458770007D336 /* Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
-		3DDDB44421845E460007D336 /* CreateIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateIntent.swift; path = Todo/Model/Entity/CreateIntent.swift; sourceTree = SOURCE_ROOT; };
+		3DDDB44421845E460007D336 /* CreateIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateIntent.swift; path = Todo/Intent/CreateIntent.swift; sourceTree = SOURCE_ROOT; };
 		3DDDB447218464100007D336 /* CreateEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEvent.swift; sourceTree = "<group>"; };
-		3DDDB449218466600007D336 /* LoadTodoIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoadTodoIntent.swift; path = Todo/Event/LoadTodoIntent.swift; sourceTree = SOURCE_ROOT; };
-		3DDDB44B218467A10007D336 /* LoadTodoEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadTodoEvent.swift; sourceTree = "<group>"; };
+		3DDDB449218466600007D336 /* LoadIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoadIntent.swift; path = Todo/Intent/LoadIntent.swift; sourceTree = SOURCE_ROOT; };
+		3DDDB44B218467A10007D336 /* LoadEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadEvent.swift; sourceTree = "<group>"; };
+		3DDDB44D21847BF10007D336 /* UpdateIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UpdateIntent.swift; path = Todo/Intent/UpdateIntent.swift; sourceTree = SOURCE_ROOT; };
+		3DDDB44F21847D9E0007D336 /* UpateEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpateEvent.swift; sourceTree = "<group>"; };
+		3DDDB45221847E920007D336 /* DeleteIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteIntent.swift; sourceTree = "<group>"; };
+		3DDDB454218480CE0007D336 /* DeleteEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteEvent.swift; sourceTree = "<group>"; };
 		64C6221BDD701D11A6876969 /* Pods-Todo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Todo/Pods-Todo.release.xcconfig"; sourceTree = "<group>"; };
 		65A56E7CC5978EBD83614FF5 /* Pods_TodoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68714BDDA778F73875D3E60F /* Pods-Todo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Todo/Pods-Todo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -155,9 +163,9 @@
 		3D28FD802182F2A9004523F9 /* Todo */ = {
 			isa = PBXGroup;
 			children = (
+				3DDDB45121847E6F0007D336 /* Intent */,
 				3DDDB446218463FE0007D336 /* Event */,
 				3DBE968B2183453A00370AA9 /* Repo */,
-				3DBE968A2183453200370AA9 /* Intent */,
 				3DBE9687218313FE00370AA9 /* View */,
 				3DBE9686218313DA00370AA9 /* ViewModel */,
 				3DBE967B2182FF5F00370AA9 /* Model */,
@@ -240,15 +248,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		3DBE968A2183453200370AA9 /* Intent */ = {
-			isa = PBXGroup;
-			children = (
-				3DDDB44421845E460007D336 /* CreateIntent.swift */,
-				3DDDB449218466600007D336 /* LoadTodoIntent.swift */,
-			);
-			path = Intent;
-			sourceTree = "<group>";
-		};
 		3DBE968B2183453A00370AA9 /* Repo */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,9 +263,22 @@
 			isa = PBXGroup;
 			children = (
 				3DDDB447218464100007D336 /* CreateEvent.swift */,
-				3DDDB44B218467A10007D336 /* LoadTodoEvent.swift */,
+				3DDDB44B218467A10007D336 /* LoadEvent.swift */,
+				3DDDB44F21847D9E0007D336 /* UpateEvent.swift */,
+				3DDDB454218480CE0007D336 /* DeleteEvent.swift */,
 			);
 			path = Event;
+			sourceTree = "<group>";
+		};
+		3DDDB45121847E6F0007D336 /* Intent */ = {
+			isa = PBXGroup;
+			children = (
+				3DDDB44421845E460007D336 /* CreateIntent.swift */,
+				3DDDB449218466600007D336 /* LoadIntent.swift */,
+				3DDDB44D21847BF10007D336 /* UpdateIntent.swift */,
+				3DDDB45221847E920007D336 /* DeleteIntent.swift */,
+			);
+			path = Intent;
 			sourceTree = "<group>";
 		};
 		CECB512491E9ABADB60F280D /* Frameworks */ = {
@@ -517,13 +529,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DDDB44A218466600007D336 /* LoadTodoIntent.swift in Sources */,
+				3DDDB44E21847BF10007D336 /* UpdateIntent.swift in Sources */,
+				3DDDB44A218466600007D336 /* LoadIntent.swift in Sources */,
 				3DDDB44521845E460007D336 /* CreateIntent.swift in Sources */,
+				3DDDB45321847E920007D336 /* DeleteIntent.swift in Sources */,
 				3D28FD822182F2A9004523F9 /* AppDelegate.swift in Sources */,
+				3DDDB455218480CE0007D336 /* DeleteEvent.swift in Sources */,
 				3DDDB448218464100007D336 /* CreateEvent.swift in Sources */,
 				3DBE968F2183460000370AA9 /* LocalStorageRepositoryImp.swift in Sources */,
 				3DBE967F2183020400370AA9 /* State.swift in Sources */,
-				3DDDB44C218467A10007D336 /* LoadTodoEvent.swift in Sources */,
+				3DDDB44C218467A10007D336 /* LoadEvent.swift in Sources */,
 				3DBE96892183140F00370AA9 /* TodoViewController.swift in Sources */,
 				3DDDB441218457290007D336 /* FileRepositoryImp.swift in Sources */,
 				3DBE967D218301EF00370AA9 /* Todo.swift in Sources */,
@@ -532,6 +547,7 @@
 				3DBE967A2182F7A700370AA9 /* Module.swift in Sources */,
 				3DBE968D2183454A00370AA9 /* LocalStorageRepository.swift in Sources */,
 				3DDDB443218458770007D336 /* Display.swift in Sources */,
+				3DDDB45021847D9E0007D336 /* UpateEvent.swift in Sources */,
 				3DDDB43F218456B60007D336 /* FileRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
