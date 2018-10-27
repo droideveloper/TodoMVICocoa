@@ -15,10 +15,20 @@ class TodoViewController: BaseTableViewController<TodoModel, TodoViewModel> {
 	var display: Display = .all
 	
 	private var dataSet = ObservableList<Todo>()
+	private lazy var dataSource = {
+		return TodoDataSource(dataSet: dataSet)
+	}()
 	
   override func setUp() {
 		// register data set every thime we get visible
 		dataSet.register(tableView)
+		// table view
+		let nib = UINib(nibName: "TodoCell", bundle: Bundle.main)
+		tableView.register(nib, forCellReuseIdentifier: TodoDataSource.kTodoCell)
+		// style
+		tableView.separatorStyle = .none
+		// register data source
+		tableView.dataSource = dataSource
   }
   
   override func attach() {
@@ -32,6 +42,7 @@ class TodoViewController: BaseTableViewController<TodoModel, TodoViewModel> {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		dataSet.unregister(tableView) // we do clear our dataSet
+		tableView.dataSource = nil
 		super.viewDidAppear(animated)
 	}
 	
