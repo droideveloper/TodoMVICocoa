@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import CoreGraphics
 
+@IBDesignable
 class BottomLayout: UIView {
 	
 	override func draw(_ rect: CGRect) {

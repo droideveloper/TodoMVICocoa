@@ -34,6 +34,7 @@ class TodoViewController: BaseTableViewController<TodoModel, TodoViewModel> {
   override func attach() {
     super.attach() // requires super call since it needs those
     // we will require new data concept in this segment
+		checkIfInitialLoadNeeded()
   }
   
   override func render(model: TodoModel) {

@@ -7,13 +7,20 @@
 //
 
 import Foundation
-import UIKit
+import MVICocoa
+import RxSwift
 
-class MainViewController: UIViewController {
+class MainViewController: BaseViewController<DisplayModel, MainViewModel> {
 	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		
+	override func setUp() {
+		// TODO set up here
 	}
 	
+	override func attach() {
+		super.attach()
+	}
+	
+	override func render(model: DisplayModel) {
+		// TODO render it here
+	}
 }
