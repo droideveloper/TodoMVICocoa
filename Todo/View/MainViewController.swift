@@ -9,6 +9,7 @@
 import Foundation
 import MVICocoa
 import RxSwift
+import RxCocoa
 import Swinject
 import SwinjectStoryboard
 
@@ -22,6 +23,7 @@ class MainViewController: BaseViewController<DisplayModel, MainViewModel> {
 	@IBOutlet private weak var btnActive: UIButton!
 	@IBOutlet private weak var btnInactive: UIButton!
 
+	@IBOutlet private weak var textFeild: UITextField!
 	
 	private let displays: [Display] = [.all, .active, .inactive]
 	private lazy var tabs: [TabItem] = {
@@ -52,6 +54,13 @@ class MainViewController: BaseViewController<DisplayModel, MainViewModel> {
 	
 	override func attach() {
 		super.attach()
+		
+		disposeBag += textFeild.rx.controlEvent(.editingDidEndOnExit)
+			.asObservable()
+			.map { _ in self.textFeild.text ?? String.empty }
+			.filter { text in text != String.empty }
+			.map { text in CreateEvent(text: text) }
+			.subscribe(onNext: BusManager.send)
 		
 		let allObservable = btnAll.rx.tap.map { _ in self.all }
 		let activeObservable = btnActive.rx.tap.map { _ in self.active }

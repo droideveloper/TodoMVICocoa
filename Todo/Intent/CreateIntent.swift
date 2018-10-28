@@ -34,7 +34,7 @@ public class CreateIntent: ObservableIntent<TodoModel> {
 	}
 	
 	private func byInitial() -> Reducer<TodoModel> {
-		return { model in model.copy(state: create, data: [])  }
+		return { model in model.copy(state: idle, data: [])  }
 	}
 	
 	private func bySuccess(_ data: [Todo]) -> Observable<Reducer<TodoModel>> {
