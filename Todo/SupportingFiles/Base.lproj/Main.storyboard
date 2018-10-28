@@ -12,7 +12,7 @@
         <!--Todo View Controller-->
         <scene sceneID="xfO-2A-bQq">
             <objects>
-                <tableViewController id="4nc-sV-HDP" customClass="TodoViewController" customModule="Todo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="todoViewController" id="4nc-sV-HDP" customClass="TodoViewController" customModule="Todo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zDe-PE-lIX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -211,6 +211,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Q6U-Rc-Wfv"/>
                     </view>
+                    <connections>
+                        <outlet property="active" destination="aWW-hh-5Ml" id="jqP-CA-cB6"/>
+                        <outlet property="all" destination="gWS-H5-oiA" id="BNU-mX-oNB"/>
+                        <outlet property="btnActive" destination="EuO-fw-QdN" id="OgJ-Jd-eIX"/>
+                        <outlet property="btnAll" destination="eRN-eP-2cG" id="gNI-N0-DpG"/>
+                        <outlet property="btnInactive" destination="vGA-SO-zTV" id="BjG-l2-vvZ"/>
+                        <outlet property="inactive" destination="84v-qt-pV6" id="C6r-DA-RSM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c6i-G6-kjF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
