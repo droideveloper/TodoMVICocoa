@@ -15,7 +15,6 @@ class TodoViewModel: BaseViewModel<TodoModel> {
   private weak var view: TodoViewController?
   
   init(view: TodoViewController) {
-    super.init()
     self.view = view
   }
   
@@ -27,9 +26,5 @@ class TodoViewModel: BaseViewModel<TodoModel> {
         .toIntent(view.container)
         .subscribe(onNext: accept(_ :))
     }
-  }
-  
-  override func store() -> Observable<TodoModel> {
-    return super.store()
   }
 }

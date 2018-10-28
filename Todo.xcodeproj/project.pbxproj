@@ -17,6 +17,9 @@
 		3D9F18E02184A9ED001E9C2E /* EditorLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9F18DF2184A9ED001E9C2E /* EditorLayout.swift */; };
 		3D9F18E22184AB9E001E9C2E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9F18E12184AB9E001E9C2E /* MainViewController.swift */; };
 		3D9F18E42184AD14001E9C2E /* BottomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9F18E32184AD14001E9C2E /* BottomLayout.swift */; };
+		3DBB5FC02184FE700023C2E2 /* DisplayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBB5FBF2184FE700023C2E2 /* DisplayModel.swift */; };
+		3DBB5FC22184FF660023C2E2 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBB5FC12184FF660023C2E2 /* MainViewModel.swift */; };
+		3DBB5FC421858BA40023C2E2 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBB5FC321858BA40023C2E2 /* TabItem.swift */; };
 		3DBE967A2182F7A700370AA9 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE96792182F7A700370AA9 /* Module.swift */; };
 		3DBE967D218301EF00370AA9 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE967C218301EF00370AA9 /* Todo.swift */; };
 		3DBE967F2183020400370AA9 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE967E2183020400370AA9 /* State.swift */; };
@@ -79,6 +82,9 @@
 		3D9F18DF2184A9ED001E9C2E /* EditorLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorLayout.swift; sourceTree = "<group>"; };
 		3D9F18E12184AB9E001E9C2E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3D9F18E32184AD14001E9C2E /* BottomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomLayout.swift; sourceTree = "<group>"; };
+		3DBB5FBF2184FE700023C2E2 /* DisplayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayModel.swift; sourceTree = "<group>"; };
+		3DBB5FC12184FF660023C2E2 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		3DBB5FC321858BA40023C2E2 /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		3DBE96792182F7A700370AA9 /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		3DBE967C218301EF00370AA9 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		3DBE967E2183020400370AA9 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
@@ -236,6 +242,7 @@
 			children = (
 				3DBE9684218311AE00370AA9 /* TodoModel.swift */,
 				3DBE968021830A0A00370AA9 /* Entity */,
+				3DBB5FBF2184FE700023C2E2 /* DisplayModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -254,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				3DBE96812183118600370AA9 /* TodoViewModel.swift */,
+				3DBB5FC12184FF660023C2E2 /* MainViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -325,6 +333,7 @@
 				3DDDB45D21848BF70007D336 /* UIRadioButton.swift */,
 				3D9F18DF2184A9ED001E9C2E /* EditorLayout.swift */,
 				3D9F18E32184AD14001E9C2E /* BottomLayout.swift */,
+				3DBB5FC321858BA40023C2E2 /* TabItem.swift */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -582,9 +591,12 @@
 				3D9F18E22184AB9E001E9C2E /* MainViewController.swift in Sources */,
 				3D9F18E02184A9ED001E9C2E /* EditorLayout.swift in Sources */,
 				3DDDB44A218466600007D336 /* LoadIntent.swift in Sources */,
+				3DBB5FC02184FE700023C2E2 /* DisplayModel.swift in Sources */,
 				3DDDB44521845E460007D336 /* CreateIntent.swift in Sources */,
 				3DDDB45321847E920007D336 /* DeleteIntent.swift in Sources */,
 				3D28FD822182F2A9004523F9 /* AppDelegate.swift in Sources */,
+				3DBB5FC421858BA40023C2E2 /* TabItem.swift in Sources */,
+				3DBB5FC22184FF660023C2E2 /* MainViewModel.swift in Sources */,
 				3DDDB455218480CE0007D336 /* DeleteEvent.swift in Sources */,
 				3D9F18E42184AD14001E9C2E /* BottomLayout.swift in Sources */,
 				3DDDB448218464100007D336 /* CreateEvent.swift in Sources */,

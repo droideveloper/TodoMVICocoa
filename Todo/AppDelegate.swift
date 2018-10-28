@@ -15,12 +15,21 @@ import SwinjectStoryboard
 class AppDelegate: UIResponder, UIApplicationDelegate, Injectable {
 
   var window: UIWindow?
-  
-  var container: Container = Container()
+	var container: Container = {
+		let container = Container()
+		_ = Module(container: container) // will inject my container
+		return container
+	}()
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {		
-		_ = Module(container: container) // will inject my container
     // Override point for customization after application launch.
+		let window = UIWindow(frame: UIScreen.main.bounds)
+		window.makeKeyAndVisible()
+		self.window = window
+		
+		let storyboard = SwinjectStoryboard.create(name: "Main", bundle: nil, container: container)
+		window.rootViewController = storyboard.instantiateInitialViewController()
+		
     return true
   }
 
