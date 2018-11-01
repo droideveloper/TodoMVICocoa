@@ -48,12 +48,23 @@ class TodoViewController: BaseViewController<TodoModel, TodoViewModel> {
     // render view in here
 		if let state = model.state as? Process {
 			if state == create {
-				dataSet.append(model.data)
+				if display == .all || display == .active {
+					dataSet.append(model.data)
+				}
 			} else if state == update {
-				if let todo = model.data.first {
-					let position = dataSet.indexOf(todo)
-					if position != -1 {
-						dataSet.put(at: position, value: todo)
+				if display == .all {
+					if let todo = model.data.first {
+						let position = dataSet.indexOf(todo)
+						if position != -1 {
+							dataSet.put(at: position, value: todo)
+						}
+					}
+				} else if display == .active || display == .inactive {
+					if let todo = model.data.first {
+						let position = dataSet.indexOf(todo)
+						if position != -1 {
+							dataSet.remove(at: position)
+						}
 					}
 				}
 			}
