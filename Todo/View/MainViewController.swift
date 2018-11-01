@@ -100,40 +100,42 @@ class MainViewController: BaseViewController<DisplayModel, MainViewModel> {
 	}
 	
 	private func invalidateTabs(_ newDisplay: Display) {
-		tabs.forEach { tab in tab.isChecked = false }
-		switch newDisplay {
-		case .all:
-			tabs[0].isChecked = true
-			break
-		case .active:
-			tabs[1].isChecked = true
-			break
-		case .inactive:
-			tabs[2].isChecked = true
-			break
-		}
+		uncheckSelectedTabs()
+		checkTab(newDisplay)
 	}
 	
 	private func addSubController(_ newDisplay: Display) {
-		controllers.forEach { controller in
-			controller.detachFromParentViewController()
-		}
-		switch newDisplay {
-			case .all:
-				controllers[0].attachTo(parentViewController: self)
-				break
-			case .active:
-				controllers[1].attachTo(parentViewController: self)
-				break
-			case .inactive:
-				controllers[2].attachTo(parentViewController: self)
-				break
-		}
+		detachIfControllerAttached()
+		attachControlerForDispaly(newDisplay)
 	}
 	
 	private func checkIfInitialStateNeeded() {
 		if selectedDisplay == nil {
 			accept(SelectTabEvent(display: .all))
+		}
+	}
+	
+	private func uncheckSelectedTabs() {
+		tabs.filter { tab in tab.isChecked }
+			.forEach { tab in tab.isChecked = false }
+	}
+	
+	private func checkTab(_ newDisplay: Display) {
+		let position = displays.firstIndex(of: newDisplay) ?? -1
+		if position != -1 {
+			tabs[position].isChecked = true
+		}
+	}
+	
+	private func detachIfControllerAttached() {
+		controllers.filter { controller in controller.view.isDescendant(of: self.view) }
+			.forEach { controller in controller.detachFromParentViewController() }
+	}
+	
+	private func attachControlerForDispaly(_ newDisplay: Display) {
+		let position = displays.firstIndex(of: newDisplay) ?? -1
+		if position != -1 {
+			controllers[position].attachTo(parentViewController: self)
 		}
 	}
 }
