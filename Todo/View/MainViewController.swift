@@ -47,33 +47,31 @@ class MainViewController: BaseViewController<DisplayModel, MainViewModel> {
 	
 	override func attach() {
 		super.attach()
-		if let disposeBag = disposeBag {
-			disposeBag += textFeild.rx.controlEvent(.editingDidEndOnExit)
-				.asObservable()
-				.map { _ in self.textFeild.text ?? String.empty }
-				.filter { text in text != String.empty }
-				.map { text in CreateEvent(text: text) }
-				.do(onNext: { _ in self.textFeild.text = nil })
-				.subscribe(onNext: BusManager.send)
-			
-			let allObservable = btnAll.rx.tap.map { _ in self.all }
-			let activeObservable = btnActive.rx.tap.map { _ in self.active }
-			let inactiveObservable = btnInactive.rx.tap.map { _ in self.inactive }
-			
-			disposeBag += Observable.merge(allObservable, activeObservable, inactiveObservable)
-				.concatMap { tab -> Observable<Display> in
-					if let tab = tab {
-						if let index = self.tabs.firstIndex(of: tab) {
-							return Observable.just(self.displays[index])
-						}
+		disposeBag += textFeild.rx.controlEvent(.editingDidEndOnExit)
+			.asObservable()
+			.map { _ in self.textFeild.text ?? String.empty }
+			.filter { text in text != String.empty }
+			.map { text in CreateEvent(text: text) }
+			.do(onNext: { _ in self.textFeild.text = nil })
+			.subscribe(onNext: BusManager.send)
+		
+		let allObservable = btnAll.rx.tap.map { _ in self.all }
+		let activeObservable = btnActive.rx.tap.map { _ in self.active }
+		let inactiveObservable = btnInactive.rx.tap.map { _ in self.inactive }
+		
+		disposeBag += Observable.merge(allObservable, activeObservable, inactiveObservable)
+			.concatMap { tab -> Observable<Display> in
+				if let tab = tab {
+					if let index = self.tabs.firstIndex(of: tab) {
+						return Observable.just(self.displays[index])
 					}
-					return Observable.never()
 				}
-				.map { display in SelectTabEvent(display: display) }
-				.subscribe(onNext: accept(_ :))
-			
-			checkIfInitialStateNeeded()
-		}
+				return Observable.never()
+			}
+			.map { display in SelectTabEvent(display: display) }
+			.subscribe(onNext: accept(_ :))
+		
+		checkIfInitialStateNeeded()
 	}
 	
 	override func render(model: DisplayModel) {
