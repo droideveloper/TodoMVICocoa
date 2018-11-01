@@ -53,6 +53,7 @@ class MainViewController: BaseViewController<DisplayModel, MainViewModel> {
 			.map { _ in self.textFeild.text ?? String.empty }
 			.filter { text in text != String.empty }
 			.map { text in CreateEvent(text: text) }
+			.do(onNext: { _ in self.textFeild.text = nil })
 			.subscribe(onNext: BusManager.send)
 		
 		let allObservable = btnAll.rx.tap.map { _ in self.all }
