@@ -20,40 +20,36 @@ class LocalStorageRepositoryImp: LocalStorageRepository {
 	}
 	
 	func create(_ value: Todo) -> Completable {
+		dataSet.append(value) // do outside
 		return Completable.create { emitter in
-			
-			self.dataSet.append(value)
 			emitter(.completed)
-			
 			return Disposables.create()
 		}.andThen(persist()) // with any change we do persist it 
 	}
 	
 	func delete(_ value: Todo) -> Completable {
+		if let index = dataSet.index(of: value) {
+			dataSet.remove(at: index)
+		}
 		return Completable.create { emitter in
-			
-			if let index = self.dataSet.firstIndex(of: value) {
-				self.dataSet.remove(at: index)
-			}
 			emitter(.completed)
-			
 			return Disposables.create()
 	  }.andThen(persist()) // with any change we do persist it
 	}
 	
 	func update(_ value: Todo) -> Completable {
+		if let index = dataSet.index(of: value) {
+			dataSet[index] = value
+		}
 		return Completable.create { emitter in
-			if let index = self.dataSet.firstIndex(of: value) {
-				self.dataSet[index] = value
-			}
 			emitter(.completed)
-			
 			return Disposables.create()
 		}.andThen(persist()) // in any change we do persist it
 	}
 	
 	func load(_ display: Display) -> Observable<[Todo]> {
 		return deserialize() // read from file system
+			.do(onNext: save(_ :))
 			.flatMap { items in Observable.from(items) }
 			.enumerated()
 			.filter { index, item in return self.filter(display: display, index, item: item) }
@@ -78,5 +74,12 @@ class LocalStorageRepositoryImp: LocalStorageRepository {
 	
 	private func persist() -> Completable {
 		return fileRepository.write(fileRepository.url, dataSet)
+	}
+	
+	private func save(_ data: Array<Todo>) {
+		if !dataSet.isEmpty {
+			dataSet.removeAll()
+		}
+		dataSet.append(contentsOf: data)
 	}
 }

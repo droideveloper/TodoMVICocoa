@@ -57,6 +57,8 @@ class TodoViewController: BaseViewController<TodoModel, TodoViewModel> {
 					}
 				}
 			}
+		} else if model.state is Idle {
+			dataSet.append(model.data)
 		}
 		print("render: \(model.data) state: \(model.state) for: \(display)")
   }
