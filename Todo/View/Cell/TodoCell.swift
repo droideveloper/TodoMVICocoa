@@ -17,11 +17,14 @@ class TodoCell: UITableViewCell {
 	@IBOutlet private weak var viewLabelTitle: UILabel!
 	@IBOutlet private weak var view: UIView!
 	
-	private var disposeBag: DisposeBag!
+	private let disposeBag = MVICocoa.CompositeDisposable()
+	
+	override func prepareForReuse() {
+		super.prepareForReuse()
+		disposeBag.clear()
+	}
 	
 	func bind(entity: Todo) {
-		disposeBag = DisposeBag() // initialized in each bind since cells are reusable so we do not want to bind everythime cell invaldiated...
-		
 		let attributedString = NSMutableAttributedString(string: entity.title)
 		let state = entity.state == .inactive || entity.state == .completed
 		if state {

@@ -35,7 +35,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   MVICocoa:
-    :commit: ccd8e2f4da322c62d406f85538fc64ec220b531c
+    :commit: f98467bce14bccc9d2828b7cbe9c82af77d0eeb9
     :git: https://github.com/droideveloper/MVICocoa.git
 
 SPEC CHECKSUMS:
