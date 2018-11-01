@@ -38,10 +38,11 @@ class TodoViewController: BaseViewController<TodoModel, TodoViewModel> {
   override func attach() {
     super.attach() // requires super call since it needs those
     // we will require new data concept in this segment
+		if let disposeBag = disposeBag {
+			disposeBag += BusManager.register(accept(_:)) // event will com from third party or parent pipeline
 		
-		disposeBag += BusManager.register(accept(_:)) // event will com from third party or parent pipeline
-		
-		checkIfInitialLoadNeeded()
+			checkIfInitialLoadNeeded()
+		}
   }
   
   override func render(model: TodoModel) {
