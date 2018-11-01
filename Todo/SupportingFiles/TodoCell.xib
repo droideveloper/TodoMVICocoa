@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="94" id="s5l-JW-jIm" customClass="TodoCell" customModule="Todo" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="s5l-JW-jIm" customClass="TodoCell" customModule="Todo" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="418" height="94"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s5l-JW-jIm" id="xcA-3r-8d5">
@@ -27,26 +27,27 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t1m-Yc-6sI">
-                        <rect key="frame" x="0.0" y="92.5" width="0.0" height="1"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Oh-lI-6FD">
+                        <rect key="frame" x="0.0" y="92.5" width="418" height="1"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="1" id="xdK-SV-m83"/>
+                            <constraint firstAttribute="height" constant="1" id="GVk-QD-hdS"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="t1m-Yc-6sI" secondAttribute="bottom" id="9eL-oD-OEX"/>
+                    <constraint firstItem="1Oh-lI-6FD" firstAttribute="leading" secondItem="xcA-3r-8d5" secondAttribute="leading" id="A9M-2P-Vgx"/>
+                    <constraint firstAttribute="trailing" secondItem="1Oh-lI-6FD" secondAttribute="trailing" id="ETd-db-Eaj"/>
+                    <constraint firstAttribute="bottom" secondItem="1Oh-lI-6FD" secondAttribute="bottom" id="Lao-te-XQd"/>
                     <constraint firstItem="HAy-os-Gaz" firstAttribute="leading" secondItem="xcA-3r-8d5" secondAttribute="leadingMargin" constant="8" id="YsC-SA-GeE"/>
                     <constraint firstItem="HAy-os-Gaz" firstAttribute="trailing" secondItem="zY2-R9-POs" secondAttribute="leading" constant="8" id="fyN-ZA-GCF"/>
-                    <constraint firstAttribute="leading" secondItem="t1m-Yc-6sI" secondAttribute="trailing" id="gow-NF-K9u"/>
                     <constraint firstAttribute="trailingMargin" secondItem="zY2-R9-POs" secondAttribute="trailing" constant="8" id="kV2-Y7-pER"/>
                     <constraint firstItem="HAy-os-Gaz" firstAttribute="centerY" secondItem="xcA-3r-8d5" secondAttribute="centerY" id="s13-zP-cUY"/>
-                    <constraint firstItem="t1m-Yc-6sI" firstAttribute="leading" secondItem="xcA-3r-8d5" secondAttribute="leading" id="urb-ID-BD4"/>
                     <constraint firstItem="zY2-R9-POs" firstAttribute="centerY" secondItem="xcA-3r-8d5" secondAttribute="centerY" id="vf4-Ej-mea"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="view" destination="xcA-3r-8d5" id="qk8-n9-pdJ"/>
                 <outlet property="viewButtonState" destination="zY2-R9-POs" id="B4Q-Vn-UPO"/>
                 <outlet property="viewLabelTitle" destination="HAy-os-Gaz" id="Vgb-17-gQs"/>
             </connections>

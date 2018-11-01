@@ -8,6 +8,7 @@
 
 import Foundation
 import MVICocoa
+import Swinject
 
 class StateChangedEvent: Event {
 	
@@ -15,5 +16,12 @@ class StateChangedEvent: Event {
 	
 	init(todo: Todo) {
 		self.todo = todo
+	}
+	
+	override func toIntent(container: Container?) -> Intent {
+		if let localStorageRepository = container?.resolve(LocalStorageRepository.self) {
+			return StateChangedIntent(todo: todo, localStorageRepository: localStorageRepository)
+		}
+		return self.toIntent(container: container)
 	}
 }

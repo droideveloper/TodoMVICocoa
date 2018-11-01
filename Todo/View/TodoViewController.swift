@@ -10,7 +10,10 @@ import Foundation
 import MVICocoa
 
 
-class TodoViewController: BaseTableViewController<TodoModel, TodoViewModel> {
+class TodoViewController: BaseViewController<TodoModel, TodoViewModel> {
+	
+	
+	@IBOutlet private weak var tableView: UITableView!
 	
 	// default option for now
 	var display: Display = .all
@@ -46,14 +49,20 @@ class TodoViewController: BaseTableViewController<TodoModel, TodoViewModel> {
 		if let state = model.state as? Process {
 			if state == create {
 				dataSet.append(model.data)
+			} else if state == update {
+				if let todo = model.data.first {
+					let position = dataSet.indexOf(todo)
+					if position != -1 {
+						dataSet.put(at: position, value: todo)
+					}
+				}
 			}
 		}
 		print("render: \(model.data) state: \(model.state) for: \(display)")
   }
 	
-	override func viewDidAppear(_ animated: Bool) {
+	override func viewDidDisappear(_ animated: Bool) {
 		dataSet.unregister(tableView) // we do clear our dataSet
-		tableView.dataSource = nil
 		super.viewDidAppear(animated)
 	}
 	
