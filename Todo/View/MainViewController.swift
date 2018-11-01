@@ -30,26 +30,19 @@ class MainViewController: BaseViewController<DisplayModel, MainViewModel> {
 		return [all, active, inactive]
 	}()
 	
-	private lazy var controllers: [TodoViewController] = {
+	private lazy var storyBoard: UIStoryboard = {
 		if let container = container {
-			let storyBoard = SwinjectStoryboard.create(name: "Main", bundle: nil, container: container)
-			return [storyBoard.instantiateViewController(withIdentifier: "todoViewController") as! TodoViewController,
-							storyBoard.instantiateViewController(withIdentifier: "todoViewController") as! TodoViewController,
-							storyBoard.instantiateViewController(withIdentifier: "todoViewController") as! TodoViewController]
+			return SwinjectStoryboard.create(name: "Main", bundle: nil, container: container)
 		}
-		return []
+		fatalError("we can not resolve container injection so long")
 	}()
 	
 	private var selectedDisplay: Display? = nil
+	private var controller: TodoViewController? = nil
 	
 	override func setUp() {
 		// initial state
-		tabs.forEach { tab in tab.isChecked = false }
-		controllers.forEach { controller in
-			if let index = self.controllers.firstIndex(of: controller) {
-				controller.display = self.displays[index]
-			}
-		}
+		tabs.forEach { tab in tab.isChecked = false } // clear state at set up
 	}
 	
 	override func attach() {
@@ -105,7 +98,6 @@ class MainViewController: BaseViewController<DisplayModel, MainViewModel> {
 	}
 	
 	private func addSubController(_ newDisplay: Display) {
-		detachIfControllerAttached()
 		attachControlerForDispaly(newDisplay)
 	}
 	
@@ -127,15 +119,10 @@ class MainViewController: BaseViewController<DisplayModel, MainViewModel> {
 		}
 	}
 	
-	private func detachIfControllerAttached() {
-		controllers.filter { controller in controller.view.isDescendant(of: self.view) }
-			.forEach { controller in controller.detachFromParentViewController() }
-	}
-	
 	private func attachControlerForDispaly(_ newDisplay: Display) {
-		let position = displays.firstIndex(of: newDisplay) ?? -1
-		if position != -1 {
-			controllers[position].attachTo(parentViewController: self)
-		}
+		controller?.detachFromParentViewController() // if there is value we will detach it first
+		controller = storyBoard.instantiateViewController(withIdentifier: "todoViewController") as? TodoViewController
+		controller?.display = newDisplay
+		controller?.attachTo(parentViewController: self)
 	}
 }

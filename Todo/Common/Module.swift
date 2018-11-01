@@ -33,6 +33,6 @@ class Module {
 				return LocalStorageRepositoryImp(fileRepository: fileRepository)
 			}
 			fatalError("can not resolve \(FileRepository.self)")
-		})
+		}).inObjectScope(.container)
   }
 }
