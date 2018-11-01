@@ -17,7 +17,7 @@ class UIRadioButton: UIButton {
 	
 	var isChecked: Bool = false {
 		didSet {
-			if isSelected {
+			if isChecked {
 				setImage(selectedImage, for: .normal)
 			} else {
 				setImage(notSelectedImage, for: .normal)

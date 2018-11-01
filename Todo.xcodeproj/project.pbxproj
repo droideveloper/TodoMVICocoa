@@ -30,6 +30,7 @@
 		3DBE96892183140F00370AA9 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE96882183140F00370AA9 /* TodoViewController.swift */; };
 		3DBE968D2183454A00370AA9 /* LocalStorageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE968C2183454A00370AA9 /* LocalStorageRepository.swift */; };
 		3DBE968F2183460000370AA9 /* LocalStorageRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE968E2183460000370AA9 /* LocalStorageRepositoryImp.swift */; };
+		3DC4B3CE218AF68400529A1B /* StateChangedIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC4B3CD218AF68400529A1B /* StateChangedIntent.swift */; };
 		3DDDB43F218456B60007D336 /* FileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB43E218456B60007D336 /* FileRepository.swift */; };
 		3DDDB441218457290007D336 /* FileRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB440218457290007D336 /* FileRepositoryImp.swift */; };
 		3DDDB443218458770007D336 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDB442218458770007D336 /* Display.swift */; };
@@ -97,6 +98,7 @@
 		3DBE96882183140F00370AA9 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		3DBE968C2183454A00370AA9 /* LocalStorageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageRepository.swift; sourceTree = "<group>"; };
 		3DBE968E2183460000370AA9 /* LocalStorageRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageRepositoryImp.swift; sourceTree = "<group>"; };
+		3DC4B3CD218AF68400529A1B /* StateChangedIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateChangedIntent.swift; sourceTree = "<group>"; };
 		3DDDB43E218456B60007D336 /* FileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileRepository.swift; sourceTree = "<group>"; };
 		3DDDB440218457290007D336 /* FileRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileRepositoryImp.swift; sourceTree = "<group>"; };
 		3DDDB442218458770007D336 /* Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				3DDDB44D21847BF10007D336 /* UpdateIntent.swift */,
 				3DDDB45221847E920007D336 /* DeleteIntent.swift */,
 				3DBB5FC721859CAE0023C2E2 /* SelectTabIntent.swift */,
+				3DC4B3CD218AF68400529A1B /* StateChangedIntent.swift */,
 			);
 			path = Intent;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 			files = (
 				3DDDB44E21847BF10007D336 /* UpdateIntent.swift in Sources */,
 				3D9F18E22184AB9E001E9C2E /* MainViewController.swift in Sources */,
+				3DC4B3CE218AF68400529A1B /* StateChangedIntent.swift in Sources */,
 				3D9F18E02184A9ED001E9C2E /* EditorLayout.swift in Sources */,
 				3DDDB44A218466600007D336 /* LoadIntent.swift in Sources */,
 				3DBB5FC02184FE700023C2E2 /* DisplayModel.swift in Sources */,
