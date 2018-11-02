@@ -17,7 +17,7 @@ class TodoCell: UITableViewCell {
 	@IBOutlet private weak var viewLabelTitle: UILabel!
 	@IBOutlet private weak var view: UIView!
 	
-	private let disposeBag = MVICocoa.CompositeDisposable()
+	private let disposeBag = CompositeDisposeBag()
 	
 	override func prepareForReuse() {
 		super.prepareForReuse()
