@@ -8,9 +8,11 @@ PODS:
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
     - Swinject
-  - RxCocoa (4.3.1):
+  - RxAtomic (4.4.0)
+  - RxCocoa (4.4.0):
     - RxSwift (~> 4.0)
-  - RxSwift (4.3.1)
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
   - Swinject (2.5.0)
   - SwinjectStoryboard (2.1.0):
     - Swinject (~> 2.5)
@@ -23,6 +25,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - AlamofireImage
+    - RxAtomic
     - RxCocoa
     - RxSwift
     - Swinject
@@ -35,15 +38,16 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   MVICocoa:
-    :commit: f98467bce14bccc9d2828b7cbe9c82af77d0eeb9
+    :commit: 92c858fbd18c969f2ee6f10cfc4918b4cd48b76f
     :git: https://github.com/droideveloper/MVICocoa.git
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   AlamofireImage: 78d67ccbb763d87ba44b21583d2153500a195630
   MVICocoa: 4aa9ec0aff2dc4e4a057f209dd9503e6d13ecab1
-  RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
-  RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
   SwinjectStoryboard: 688f096033103e66ffcf6ca678211acd7d7be505
 
