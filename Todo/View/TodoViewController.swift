@@ -45,7 +45,7 @@ class TodoViewController: BaseViewController<TodoModel, TodoViewModel> {
   
   override func render(model: TodoModel) {
     // render view in here
-		if let state = model.state as? Process {
+		if let state = model.state as? Operation {
 			if state == create {
 				if display == .all || display == .active {
 					dataSet.append(model.data)
