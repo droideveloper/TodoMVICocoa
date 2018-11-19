@@ -9,9 +9,7 @@
 import Foundation
 import MVICocoa
 
-
-class TodoViewController: BaseViewController<TodoModel, TodoViewModel> {
-	
+class TodoViewController: BaseViewController<TodoModel, TodoViewModel>, Loggable {
 	
 	@IBOutlet private weak var tableView: UITableView!
 	
@@ -70,7 +68,7 @@ class TodoViewController: BaseViewController<TodoModel, TodoViewModel> {
 		} else if model.state is Idle {
 			dataSet.append(model.data)
 		}
-		print("render: \(model.data) state: \(model.state) for: \(display)")
+		log("\(model.data) state: \(model.state) for: \(display)")
   }
 	
 	override func viewDidDisappear(_ animated: Bool) {
