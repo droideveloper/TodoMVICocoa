@@ -9,9 +9,7 @@
 import Foundation
 import MVICocoa
 
-class TodoViewController: BaseViewController<TodoModel, TodoViewModel>, Loggable {
-	
-	@IBOutlet private weak var tableView: UITableView!
+class TodoViewController: BaseTableViewController<TodoModel, TodoViewModel>, Loggable {
 	
 	// default option for now
 	var display: Display = .all
@@ -22,6 +20,9 @@ class TodoViewController: BaseViewController<TodoModel, TodoViewModel>, Loggable
 	}()
 	
   override func setUp() {
+		refreshControl = UIRefreshControl()
+		refreshControl?.tintColor = UIColor.darkText
+		
 		// register data set every thime we get visible
 		dataSet.register(tableView)
 		// table view
