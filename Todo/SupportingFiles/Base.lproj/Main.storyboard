@@ -10,34 +10,18 @@
     </dependencies>
     <scenes>
         <!--Todo View Controller-->
-        <scene sceneID="sZZ-Y0-wec">
+        <scene sceneID="KQa-2W-0kC">
             <objects>
-                <viewController storyboardIdentifier="todoViewController" id="wB2-Ig-jeT" customClass="TodoViewController" customModule="Todo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="LmV-zh-Yd9" customClass="EditorLayout" customModule="Todo" customModuleProvider="target">
+                <tableViewController storyboardIdentifier="todoViewController" id="ko2-3n-XoT" customClass="TodoViewController" customModule="Todo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gnG-Do-rZV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KUv-na-08L">
-                                <rect key="frame" x="1" y="21" width="373" height="645"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="cE3-3X-Adv" firstAttribute="bottom" secondItem="KUv-na-08L" secondAttribute="bottom" constant="1" id="4Af-L3-ql8"/>
-                            <constraint firstItem="KUv-na-08L" firstAttribute="leading" secondItem="cE3-3X-Adv" secondAttribute="leading" constant="1" id="Pfc-xt-NGF"/>
-                            <constraint firstItem="KUv-na-08L" firstAttribute="top" secondItem="cE3-3X-Adv" secondAttribute="top" constant="1" id="YkW-Nm-ASV"/>
-                            <constraint firstItem="cE3-3X-Adv" firstAttribute="trailing" secondItem="KUv-na-08L" secondAttribute="trailing" constant="1" id="aeA-7R-UEu"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="cE3-3X-Adv"/>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="KUv-na-08L" id="yJa-a8-VmL"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HOP-6t-cvb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nbA-Hk-Jnm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-626" y="46"/>
+            <point key="canvasLocation" x="-532" y="45"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="Lqr-zz-9f8">
