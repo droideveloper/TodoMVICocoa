@@ -11,30 +11,21 @@ import RxSwift
 import UIKit
 import MVICocoa
 
-class TodoDataSource: NSObject, UITableViewDataSource {
+class TodoDataSource: TableDataSource<Todo> {
 
 	static let kTodoCell = "kTodoCell"
-	private let dataSet: ObservableList<Todo>
-	
-	init(dataSet: ObservableList<Todo>) {
-		self.dataSet = dataSet
-	}
 	
 	func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
 	}
 	
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return dataSet.count
-	}
-	
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: TodoDataSource.kTodoCell)
+	override func bind(_ cell: UITableViewCell, _ item: Todo) {
 		if let cell = cell as? TodoCell {
-			cell.bind(entity: dataSet.get(indexPath.row))
-			return cell
+			cell.bind(entity: item)
 		}
-		fatalError("we could not recognize cell for given identifiers")
 	}
 	
+	override func identifierAt(_ indextPath: IndexPath) -> String {
+		return TodoDataSource.kTodoCell
+	}
 }
