@@ -13,7 +13,7 @@ import MVICocoa
 
 class TodoDataSource: TableDataSource<Todo> {
 
-	static let kTodoCell = "kTodoCell"
+	private let kTodoCell = String(describing: TodoCell.self)
 	
 	func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
@@ -26,6 +26,6 @@ class TodoDataSource: TableDataSource<Todo> {
 	}
 	
 	override func identifierAt(_ indextPath: IndexPath) -> String {
-		return TodoDataSource.kTodoCell
+		return kTodoCell
 	}
 }

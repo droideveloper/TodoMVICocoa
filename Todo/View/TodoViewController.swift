@@ -26,8 +26,7 @@ class TodoViewController: BaseTableViewController<TodoModel, TodoViewModel>, Log
 		// register data set every thime we get visible
 		dataSet.register(tableView)
 		// table view
-		let nib = UINib(nibName: "TodoCell", bundle: Bundle.main)
-		tableView.register(nib, forCellReuseIdentifier: TodoDataSource.kTodoCell)
+		tableView.register(types: TodoCell.self)
 		// style
 		tableView.separatorStyle = .none
 		// register data source
